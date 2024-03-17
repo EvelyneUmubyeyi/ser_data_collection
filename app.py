@@ -92,11 +92,11 @@ def generate_unique_filename(emotion):
     return f"{emotion}_{current_time}.wav"
  
 scopes = ['https://www.googleapis.com/auth/drive']
-service_account_file = 'service_account.json'
+service_account_info = st.secrets.service_account
 parent_folder_id = '1Ep3TKh5MVrBYB2oIiJVd5M8SSmz680vy'
  
 def authenticate():
-    creds = service_account.Credentials.from_service_account_file(service_account_file, scopes = scopes)
+    creds = service_account.Credentials.from_service_account_info(service_account_info, scopes = scopes)
     return creds 
  
 def upload_photo(file_path, filename):
